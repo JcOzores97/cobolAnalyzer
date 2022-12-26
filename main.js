@@ -1,5 +1,7 @@
 const lineReader = require('line-reader');
 
+//here goes the path to cobol src file
+const filePath = 'utils/sampleFile.txt';
 
 const cicsIniReg = /^EXEC CICS/;
 const cicsEndReg = /$END-EXEC\.|END-EXEC/;
@@ -9,10 +11,7 @@ let currentSentence="";
 
 
 
-//SAMPLE FILE:
-
-
-lineReader.eachLine('sampleFile.txt', function(line, last) {
+lineReader.eachLine(filePath, function(line, last) {
     try{
 
         if(isACommentLine(line) && !last) return
